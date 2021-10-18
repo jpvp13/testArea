@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<!-- !REST API @ https://amhep.pythonanywhere.com: -->
+
+<html>
+<header>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Student Info Home</title>
+
+
+
+    <link href="index.css" rel="stylesheet" />
+    <script src="index.js"></script>
+</header>
+
+<body>
+    <div id="Title-Wrapper">
+        <p id="Page-Title">Student Information Home Page</p>
+    </div>
+    <!-- This is where the buttons live -->
+    <div class="Action-Options">
+        <!-- <button id = "add-item" onclick = "addStudentAJAX()">Add Student</button> -->
+        <button type="submit" id="add-item" value="POST" onclick="showSearchBarAddStudent()">Add Student</button>
+        <button type="submit" id="get-Specific-item" value="GET" onclick="showSearchBar_SpecificStudent()">Get Specific Student</button>
+        <button type="submit" id="get-All-item" value="GET" onclick="getAllStudentsAJAX()">Get All Student</button>
+
+        <!-- <button type = "submit" id = "get-All-item" value = "GET" onclick="getAllStudents()">Get All Student</button> -->
+        <button type="submit" id="update-Specific-item" value="PUT" onclick = "showSearchBar_UpdateStudent()">Update Student Info</button>
+        <button type="submit" id="delete-Specific-item" value="DELETE" onclick="showSearchBar_DeleteStudent()">Delete Student</button>
+
+    </div>
+
+    <!-- <div class="instructions">
+        <p>
+            Welcome!<br>
+            Here you will be able to find information regarding fake students.<br>
+            Here are some instructions on how to use this site:<br>
+        <ol>
+            <li>
+                Add Student
+                <ol>
+                    <li>
+                        Please make sure to type in the students name and GPA <em>FIRST</em>, then click on the "Add Student" button
+                    </li>
+                </ol>
+            <li>
+                Get Specific Student
+                <ol>
+                    <li>
+                        XXXX
+                    </li>
+                </ol>
+            <li>
+                Get All Students
+                <ol>
+                    <li>
+                        Press the "Get All Students" button at anytime to retrieve all student information
+                    </li>
+                </ol>
+            <li>
+                Update Student Information
+                <ol>
+                    <li>
+                        XXXXX
+                    </li>
+                </ol>
+            <li>
+                Delete Student
+                <ol>
+                    <li>
+                        XXXXXX
+                    </li>
+                </ol>
+            </li>
+            </li>
+            </li>
+            </li>
+            </li>
+        </ol>
+        </p>
+    </div> -->
+
+    <!-- This is where the input will be taken -->
+    <div class="inputANDoutput">
+
+        <div id="optionDisplay">Welcome to this record system!</div>
+        <p id = "description">This is the home screen! To begin accessing students data, press one of the buttons above to choose a action.</p>
+
+        <div id="show&hide">
+            <div id="searchBarAddStudent" style= "display: none;">
+                <form>
+                    <label for="Name" class="namePlaceholder" display: none>Name:</label>
+                    <input type="text" placeholder="Enter Full Name (Case Sensative)" id="fullNameADD" name="name"><br>
+                    <label for="gpa" style=>GPA:</label>
+                    <input type="text" placeholder="Enter GPA (if applicable)" id="GpaADD" name="gpa"><br>
+                    <button type="button" class="submit" onclick = "addStudentAJAX()">Submit</button>
+     
+
+                    <p id="displayInputADD"></p>
+
+                </form>
+            </div>
+<!-- ############################################################################################################################# -->
+            <div id="searchBarGetSpecificStudent" style= "display: none;">
+                <form>
+                    <label for="Name" class="namePlaceholder" display: none>Name:</label>
+                    <input type="text" placeholder="Enter Full Name (Case Sensative)" id="fullNameGetSpecific" name="name"><br>
+                    <button type="button" class="submit" onclick = "getSpecificStudentAJAX()">Submit</button>
+         
+
+                    <p id="displayInputSpecific"></p>
+
+                </form>
+            </div>
+<!-- ############################################################################################################################# -->
+            <div id="searchBarUpdateStudent" style= "display: none;">
+                <form>
+                    <label for="Name" class="namePlaceholder" display: none>Name:</label>
+                    <input type="text" placeholder="Enter Full Name (Case Sensative)" id="fullNameUpdate" name="name"><br>
+                    <label for="gpa" style=>GPA:</label>
+                    <input type="text" placeholder="Enter New GPA (if applicable)" id="GpaUpdate" name="gpa"><br>
+                    <button type="button" class="submit" onclick = "updateStudentAJAX()">Submit</button>
+            
+                    <p id="displayInputUpdate"></p>
+
+                </form>
+            </div>
+<!-- ############################################################################################################################# -->
+            <div id="searchBarDeleteStudent" style= "display: none;">
+                <form>
+                    <label for="Name" class="namePlaceholder" display: none>Name:</label>
+                    <input type="text" placeholder="Enter Full Name (Case Sensative)" id="fullNameDelete" name="name"><br>
+                    <button type="button" class="submit" onclick = "deleteStudentAJAX()">Submit</button>
+
+                    <p id="displayInputDelete"></p>
+
+                </form>
+            </div>
+            <pre>                                          <!--Legend makes it like a description, em makes it italic, u underlines-->
+                    <div type="text" id="output" style="display: none"><legend><em><u>Students Name : GPA</u></em></legend> </div>
+                    <div type="text" id="outputGetAll" style="display: none"><pre><legend><em><u>Students Name : GPA</u></em></legend> </pre></div>
+
+                </pre>
+
+        </div>
+    </div>
+
+
+</body>
+
+</html>
